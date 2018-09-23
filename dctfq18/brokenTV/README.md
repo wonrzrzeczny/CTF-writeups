@@ -17,7 +17,8 @@ Opening the link we can find a picture of a TV screen with some modern art displ
 
 First of all, let's save the only interesting part of the picture in seperate file (and luckily for us, the TV screen content is in fact a poorly pasted screenshot, perfectly rectangular in shape, so copying will be hassle-free).
 It kinda looks like the google search engine, but something really bad must have happened to it :C
-Upon closer inspection it really looks like every single row was shifted randomly, so our task will be to "smooth out" the display.
+
+Upon closer inspection, it really looks like every single row was shifted randomly, so our task will be to "smooth out" the display.
 The poor guy with the broken TV tried googling the flag so first of all we can try to see the phrase he was searching for.
 Smoothing out the search bar part can be done easily manually, as the google logo stands out a lot.
 
