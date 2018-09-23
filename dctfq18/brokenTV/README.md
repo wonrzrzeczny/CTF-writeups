@@ -35,6 +35,38 @@ So let's put the two pictures right next to each other:
 
 And now let's apply this simple python script:
 
+```python
+from PIL import Image
+
+img = Image.open('blur2.png')
+
+ys = 509
+xs = 1868
+pix = img.load()
+
+imgout = Image.new('RGB', (xs, ys))
+pixout = imgout.load()
+
+for y in range(0, ys):
+	pos = 0
+	longest = 0
+	current = 0
+	for x in range(0, xs):
+		if pix[x, y][0] > 250:
+			current += 1
+		else:
+			if current > longest:
+				longest = current
+				pos = x
+				current = 0
+				
+	print(pos)
+	for x in range(0, xs):
+		pixout[x, y] = pix[(x + pos) % xs, y]
+			
+imgout.save("tvfixed.png")
+```
+
 
 Holy guacamole:
 ![yay](totallygoogle.png)
