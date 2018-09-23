@@ -24,6 +24,6 @@ Clearly these rows must represent our flag somehow. After inspection we can noti
 ![incredible](voices4.png)
 
 Wow, assembling first 8 bits into one byte (01000100) gives us a character 'D' in ascii. The next 8 bits (01000011) are a binary representation of 'C'. And next three bytes are 'T', 'F' and '{'. So clearly we are on the right track.
-So let the happy funtime begin - 30 minutes of transcribing the "stripes notation" into ascii characters (and additional 30 minutes if you made a mistake somewhere in the middle of the file and your flag doesn't want to be accepted). Well, alternatively you can write a clever script to decode the flag automatically, but this doesn't look like an easy task, so why bother to do so? :)
+So let the happy funtime begin - 30 minutes of transcribing the "stripes notation" into ascii characters (and additional 30 minutes if you made a mistake somewhere in the middle of the file and your flag doesn't want to be accepted). Well, alternatively you can write a clever script to decode the flag automatically, but it doesn't look like an easy task, so why bother to do so? :)
 
 Flag: DCTF{Oh noes I lost it somewhere on my computer, if you are really curious to see some random hexadecimal jumble then decode the file yourself :P} 
