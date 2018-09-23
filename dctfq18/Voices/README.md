@@ -5,7 +5,7 @@ Voices
 Statement
 ---------
 
-[https://dctf.def.camp/dctf-18-quals-81249812/voices.wav]Listen. Can you hear the voices? They are there. Somehow. 
+*[https://dctf.def.camp/dctf-18-quals-81249812/voices.wav]Listen. Can you hear the voices? They are there. Somehow. 
 
 Solution
 --------
