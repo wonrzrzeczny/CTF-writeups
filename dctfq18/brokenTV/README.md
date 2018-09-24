@@ -72,7 +72,7 @@ Holy guacamole:
 ![yay](totallygoogle.png)
 
 What did just happen here?
-What the script does is simply it takes every row, finds the longest white segment and then shifts it so that it lands on the end of the picture (so our text will end on the beginning of it).
+What the script does is simply it takes every row, finds the longest white segment and then shifts it so that it lands on the end of the picture (so our text will land on the beginning of it).
 Now our picture is very smooth (well, smooth enough to read the flag and get some points) :)
 
 
