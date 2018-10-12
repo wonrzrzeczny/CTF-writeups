@@ -35,7 +35,7 @@ Most of the general tasks are a simple introduction to linux. The write-ups for 
 * Store: 400 pts
 * Roulette: 350 pts (this one is worth less than Store, although it's basically harder version of it, so I placed it afterwards)
 * Script me: 500 pts
-* Dog or Frog: 900 pts
+* [Dog or Frog](https://github.com/wonrzrzeczny/CTF-writeups/blob/master/picoCTF-2018/general/dogorfrog/README.md): 900 pts
 
 Reverse engineering
 -------------------
