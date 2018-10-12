@@ -43,6 +43,6 @@ This image gave 1 bit difference with p hash and around 40% of frog similarity (
 
 ![almostfrog](img5.png)
 
-So close! But I had no more ideas to improve the image. I was about to give up, when I thought to myself: "Well, neural networks are very unpredictable and they often work in an incomprehensible manner. What if I did something very stupid?". So well, I decided to erase a small, totally random part of frog's stomach. And guess what..... ummmm .... I don't even know what happened and how did that happen, but here's the final image, that gives you the flag after posting on the site:
+So close! But I had no more ideas on how to improve the image. I was about to give up, when I thought to myself: "Well, neural networks are very unpredictable and they often work in an incomprehensible manner. What if I did something very stupid?". So well, I decided to erase a small, totally random part of frog's stomach. And guess what..... ummmm .... I don't even know what happened and how did that happen, but here's the final image, that gives you the flag after posting on the site:
 
 ![thefrog](img6.png)
