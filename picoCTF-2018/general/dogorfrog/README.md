@@ -6,7 +6,7 @@ Dog or Frog
 Statement
 ---------
 
-Dressing up dogs are kinda the new thing, see if you can get this lovely girl ready for her costume party. (http://2018shell2.picoctf.com:5467/)Dog Or Frog
+Dressing up dogs are kinda the new thing, see if you can get this lovely girl ready for her costume party. [Dog Or Frog](http://2018shell2.picoctf.com:5467/)
 
 Solution
 --------
