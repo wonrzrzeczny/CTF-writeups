@@ -7,7 +7,7 @@ Tasks
 =====
 
 The tasks listed below are the all that I have managed to solve.
-As there were a lot of them and most of the easy ones were not very complicated, I decided to prepare detailed write-ups only for the most interesting ones. (Keep in mind that some write-ups are still being written)
+As there were a lot of them and most of the easy ones were not very complicated, I decided to prepare detailed write-ups only for the most interesting ones. (Keep in mind that some write-ups are still waiting to be written)
 
 
 General
