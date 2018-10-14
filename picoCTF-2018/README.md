@@ -34,7 +34,7 @@ Most of the general tasks are a simple introduction to linux. The write-ups for 
 * Learn gdb: 300 pts
 * Store: 400 pts
 * [Roulette](https://github.com/wonrzrzeczny/CTF-writeups/blob/master/picoCTF-2018/general/roulette/README.md): 350 pts (this one is worth less than Store, although it's basically harder version of it, so I placed it afterwards)
-* Script me: 500 pts
+* [Script me](https://github.com/wonrzrzeczny/CTF-writeups/blob/master/picoCTF-2018/general/scriptme/README.md): 500 pts
 * [Dog or Frog](https://github.com/wonrzrzeczny/CTF-writeups/blob/master/picoCTF-2018/general/dogorfrog/README.md): 900 pts
 
 Reverse engineering
