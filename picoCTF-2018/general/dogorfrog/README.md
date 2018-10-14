@@ -14,7 +14,7 @@ Solution
 Be aware that what you're going to read is DEFINETLY NOT the intended solution to this problem. Most of the solutions probably base on the fact that neural networks are stupid and easy to fool. Digging through the links provided on challenge site, you can find some pdf files containing description of some optimization techniques used to turn dog into frog.
 
 The solution I have found is (imo) much simpler (and also much less efficient, although the 95% required frog similarity was kind enough to let it be accepted :D). Also, instead of basing my solution on the stupidity of neural networks, I will exploit the fact that phash is extremely stupid as well. (Throughout the whole challenge I was using GIMP to edit our picture).
-My whole solution was basically trial and error and figuring out how does the p hash and this certain NN works, so I will get straight to the point and describe what I found.
+My whole solution was basically trial and error and figuring out how does the p hash and this certain NN works, so I will get straight to the point and describe what I was able to find out.
 
 So.... what's the best way to turn an image of a dog into an image of a frog? Well, inserting the image of a frog into it, of course! (like this:)
 
