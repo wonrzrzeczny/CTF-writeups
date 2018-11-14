@@ -73,7 +73,7 @@ Wow! That was so easy! Let's try to run our script and see what happens! What co
 SyntaxError: invalid syntax
 ```
 
-Woah, woah, woah. There are curly brackets, "at" symbols and even you can find The Sims currency here! Well, not cool.
+Woah, woah, woah. There are curly brackets, "at" symbols and you can even find The Sims currency in here! Well, not cool.
 But the font is pretty small. Mayve it's a good idea to zoom-in on the page. Selenium could handle this easily (well, not easily, but ask stackoverflow and the ninth thread you will find will satisfy your needs:
 
 ```python
