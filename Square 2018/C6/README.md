@@ -59,7 +59,7 @@ Coming back to the main subroutine, we have first argument put as a number to ``
 .text:08048082                 jns     short loc_8048086
 ```
 
-From now on we will refer to it as "the filter". It checks if our input argument passes the filter (which we will discuss further) and if yes then it skips instruction at ```0x08048084```. And this instruction skipped is really bad as it sets ```ebx``` register to zero. Why is it bad? Remember that at some point, this register must be equal to 666 in order for the flag to be printed out. Highlighting the ```ebx``` we can see that the only operation that is changing its value is multiplication. And it basically means that once it turns into 0 it's over.
+From now on we will refer to it as "the filter". It checks if our input argument passes something (which we will discuss later) and if yes then it skips instruction at ```0x08048084```. And this instruction skipped is really bad as it sets ```ebx``` register to zero. Why is it bad? Remember that at some point, this register must be equal to 666 in order for the flag to be printed out. Highlighting the ```ebx``` we can see that the only operation that is changing its value is multiplication. And it basically means that once it turns into 0 it's over.
 
 Let's imagine that for a while the filter is not present (therefore every argument gets accepted at this point). The next part is this bit of code:
 
