@@ -77,4 +77,5 @@ while bignum > 0:
 print(out[::-1]) #we have to reverse the output
 ```
 
-The flag is contained in the decoded instructions.
+The flag is contained in the decoded instructions:
+```flag-bd38908e375c643d03c6```
