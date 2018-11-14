@@ -1,12 +1,13 @@
 The only symbols that print something are the rocket and aliens.
-Using at least one alien will print rocket, so therefore we must include rocket in our code
-So our solution will look like this: _____🚀____🚀 (the last character must be a rocket)
+Using at least one alien will print rocket, so therefore we must include rocket in our code.
+So our solution will look like this: _____🚀____🚀 (the last character must be a rocket).
 We also MUST include 🌗 thingy, because otherwise our output will be shorter than our input
 🌗 thingy will make output size 5 times bigger so my first idea was to try to make input which will
 consist of 2 repetitions of the same sequence that will produce output equal to 5 repetitions of the same sequence
 
 This input (without the dashes):
 📡🌗👽📡🚀-📡🌗👽📡🚀
+
 Produces this output (without the dashes):
 📡🌗👽📡🚀-📡🌗👽📡🚀-📡🌗👽📡🚀-📡🌗👽📡🚀-📡🌗👽📡🚀
 
