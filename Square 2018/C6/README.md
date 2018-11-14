@@ -21,11 +21,11 @@ And here are some subroutines called:
 
 ![disas2.png](disas2.png)
 
-And there is hex of whole binary (which is relatively small):
+And there is hex of the whole binary (which is relatively small):
 
 ![hex.png](hex.png)
 
-The first thing that pops up in the hex view is the "flag is here on server." string at ```0x080481F0```. We can see that it's being referenced in instruction at ```0x080480B4``` so our task will be to reach this point after running the binary with correct input. The instruction before is ```cmp ebx, 29Ah``` (and 29A in hex is 666). So our task is basically to make sure the value of ebx will be equal to 666 during the compare.
+The first thing that pops up in the hex view is the "flag is here on server." string at ```0x080481F0```. We can see that it's being referenced in instruction at ```0x080480B4```, so our task will be to reach this point after running the binary with correct input. The instruction before is ```cmp ebx, 29Ah``` (and 29A in hex is 666). So our task is basically to make sure the value of ebx will be equal to 666 during the comparison.
 
 Let's try to analyse the asm code step by step from the beginning: program starts with poping value from stack into ```eax``` register and comparing it with ```0x10``` which is 16 in hex. If ```eax``` value is smaller than 16 it jumps to ```loc_80480C3``` which, as we can see, simply exits from the program. Also there is no reference to any kind of scanning function, therefore we can deduce that our input will be provided in program arguments and we must provide at least 16 numbers to it.
 
