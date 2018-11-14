@@ -30,4 +30,5 @@ We can on the other hand paste another repetition manually into input (eg. 📡�
 and the output produced will be equal to (5 * (repetitions in input - 1)) times 📡🌗👽📡🚀.
 
 Therefore 📡🌗👽📡🚀-📡🌗👽📡🚀-📡🌗👽📡🚀-📡🌗👽📡🚀-📡🌗👽📡🚀 sequence consists of 5 repetitions and output consists of 20 repetitions - that's exaxtly 4 times more!
-So we just must insert 🌓🌓 at the beginning of every repetition: 🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀.
+
+So we must simply insert 🌓🌓 at the beginning of every repetition: 🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀-🌓🌓📡🌗👽📡🚀.
