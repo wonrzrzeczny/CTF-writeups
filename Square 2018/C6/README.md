@@ -72,7 +72,7 @@ Let's imagine that for a while the filter is not present (therefore every argume
 The first ```mov``` puts value at position ```0x080480CA + our input from eax``` into ```eax``` register. It also treats our input value as byte (therefore we know that only reasonable values to input are between 0 and 255). The next part is basically: ```ebx = ebx * eax```. So the value in ebx is multiplied by the value read from memory. After this the ```ecx``` is set to 256 and then the following piece of code is executed:
 
 ```
-mov     al, [ecx+80480C9h]
+.text:08048097                 mov     al, [ecx+80480C9h]
 .text:0804809D                 dec     al
 .text:0804809F                 js      short loc_80480A7
 .text:080480A1                 mov     [ecx+80480C9h], al
@@ -98,7 +98,7 @@ So the same procedure is being repeated for all 16 arguments from our input. The
 
 ![hex2.png](hex2.png)
 
-For every of 16 arguments we provide at the input the following procedure is called:
+For every argument we provide at the input the following procedure is called:
 
 * Let's call our argument x
 * ebx (equal to 37 at the beginning) is multiplied by the x-th entry in the array
