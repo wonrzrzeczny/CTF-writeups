@@ -13,7 +13,7 @@ You have website that gives you long math expression to calculate. Easy, just co
 
 Wrong. The font on the website is shuffled randomly, so parentheses and digits turn to some random letters (and your expression becomes something like: hhhhP z gggP r z Gzzzzwtfgggg)
 
-Hmmmm, maybe map random letters to correct digits and then solve the challenge the same way?
+Hmmmm, maybe map these random letters to correct digits and then solve the challenge the same way?
 
 Wrong. The mapping of characters changes every 5 seconds.
 
