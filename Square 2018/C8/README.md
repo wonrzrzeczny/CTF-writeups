@@ -100,7 +100,9 @@ Almost every 3 is being recognised as 8
 ```
 
 Like, look at this dude:
+
 ![38.png](38.png)
+
 What the hell man. Don't know if the use of the font was intentional or not. But what the hell. How could you do this to us (well, at least to me, other people were clever enough to play with the font file instead of tryharding to make tesseract work).
 
 So what's the work around? The answer is simple: there is no workaround (inb4 train tesseract with new font, but why bother to do so). And by the way the 3 is not the only thing that breaks all our hopes and dreams. Tesseract still sometimes messes up the parentheses and eval will throw an exception. So here is what we will do:
@@ -127,3 +129,43 @@ Basically, now if you see something interesting to pop up in the answer button, 
 👌👌👌 Thank you for your attention. Writing this writeup made me mad again.
 
 And before somebody says that I'm bottom-hurt: nope! This was one of my best CTF adventures I've ever been on. Rolling on the floor after solving this challenge however made my back hurt a little :/
+
+
+
+
+
+And the final script is there:
+```python
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys 
+from PIL import Image
+import pytesseract
+from math import *
+import requests
+from io import BytesIO
+
+DRIVER = 'chromedriver'
+driver = webdriver.Chrome(DRIVER)
+driver.get('https://hidden-island-93990.squarectf.com/ea6c95c6d0ff24545cad')
+
+driver.set_window_size(3000,2000)
+
+while True:
+    driver.refresh() #refresh the page
+    driver.execute_script("document.body.style.zoom='450%'")
+    res = 42
+    driver.execute_script('document.getElementsByName("answer")[0].value = "' + str(res) + '"')
+    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
+    screenshot = driver.get_screenshot_as_png()
+    im = Image.open(BytesIO(screenshot))
+    string = pytesseract.image_to_string(im)
+    string = string[8:].strip().replace('x', '*').replace('{', '(').replace('}', ')').replace('§', '5').replace('«', '*').replace('Q', '9').replace('?', '7').replace('R', '*').replace('O', '9')
+    print(string)
+    try:
+        res = eval(string)
+        print(res)
+        driver.execute_script('document.getElementsByName("answer")[0].value = "' + str(res) + '"')
+        s = input() #if it works, wait for an input
+    except:
+        2+2 #help me XD, how do I do nothing in case of an exception XD
+```
