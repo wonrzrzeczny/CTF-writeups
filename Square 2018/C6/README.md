@@ -32,6 +32,11 @@ Let's try to analyse the asm code step by step from the beginning: program start
 After this check ```ecx``` is set to 16 and ```ebx``` is set to 37. Then the subroutine at ```0x080481CA``` is called. Let's take a look at it:
 
 ```
+.text:080481CA                 xor     eax, eax
+.text:080481CC                 mov     bl, 0Ah
+
+blah blah blah
+
 .text:080481CE                 mov     dl, [esi]
 .text:080481D0                 inc     esi
 .text:080481D1                 sub     dl, 30h
