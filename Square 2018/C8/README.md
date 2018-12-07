@@ -127,7 +127,7 @@ Also copying and pasting output every time eval produces something (which probab
 driver.execute_script('document.getElementsByName("answer")[0].value = "' + str(res) + '"')
 ```
 
-Basically, now if you see something interesting to pop up in the answer button, click the Submit as fast as you can and hope for something different than another "Incorrect answer.". And finally, after playing reflex test for about 15 minutes, an expression containing only one digit 3 (which somehow got recognised correctly this time) pops up.
+Basically, now if you see something interesting to pop up in the answer textbox, click the Submit as fast as you can and hope for something different than another "Incorrect answer.". And finally, after playing reflex test for about 15 minutes, an expression containing only one digit 3 (which somehow got recognised correctly this time) pops up.
 
 ```flag-a76013167fd4c04e3134```
 
