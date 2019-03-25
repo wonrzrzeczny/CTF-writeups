@@ -21,7 +21,7 @@ This task is very similar to the Dog or Frog task from picoCTF 2018, but due to 
 Solution
 --------
 
-We will start off by downloading all the libraries necessary to run samples of provided web server (which in this case are: tensorflow, keras, numpy and mathplotlib). As the website gives only a modest amount of information regarding an uploaded zip back, we would like to be able to run image analysis locally. First of all, let's try to write a script that will run an analysis of single file and will return classification probabilities for every class available in our model.
+We will start off by downloading all the libraries necessary to run samples of provided web server (which in this case are: tensorflow, keras, numpy and mathplotlib). As the website gives only a modest amount of information regarding an uploaded zip back, we would like to be able to run an image analysis locally. First of all, let's try to write a script that will run an analysis of a single file and will return the classification probabilities for every class available in our model.
 
 The ```app.py``` script uses the following function to run the image analysis:
 
@@ -46,7 +46,7 @@ And the class_names is declared at the beginning of the same file:
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 ```
 
-We can copy these snippets to our script, but we must modify predictimg function slighty. Currently it finds the class with the biggest confidence due to the ```np.argmax``` function call. Therefore we can modify it to print the same information, but for every class:
+We can copy these snippets to our script, but we must modify the predictimg function slighty. Currently it finds the class with the biggest confidence due to the ```np.argmax``` function call. Therefore we can modify it to print the same information, but for every class:
 
 ```python
 def predictimg(path,lenet):
@@ -68,7 +68,7 @@ The idea of our attack is simple - we will load our image and repeat the followi
 
 Select random pixel and random color chanel and change it a little bit. If the bird confidence increased then leave the change and repeat the procedure. If the bird confidence decreased then discard the change and try again.
 
-By trial and error I've found out that xoring the color value with 15 was an efficient choice for the "change it a little bit" step of our procedure. Also tampering with the pixel values of mathplotlib image was kind of painful, as the only method I've found to do so was to convert mathplotlib image to PIL image, change it, then convert back to mathplotlib (though I believe there are more convenient methods to do this). The complete script can be found in the ```solver.py``` file.
+By trial and error I've found out that xoring the color value with 15 was an efficient choice for the "change it a little bit" step of our procedure. Also, tampering with the pixel values of mathplotlib image was kind of painful, as the only method I've found to do so was to convert mathplotlib image to PIL image, change it, then convert back to mathplotlib (though I believe there are more convenient methods to do this). The complete script can be found in the ```solver.py``` file.
 
 First of all it loads the image, calculates the initial confidence of our chosen class and saves the image in ```tmp.jpg``` file:
 
@@ -81,7 +81,7 @@ plt.imsave('./static/tmp.jpg', imp)
 prob = predictclass('./static/tmp.jpg', lenet, targetclass)
 ```
 
-We will store the best so far image in ```tmp.jpg``` and currently analysed image after random change in ```tmp2.jpg```. Next we start a while loop going until the prob value will exceed 0.5. This part makes a random change to best so far image:
+We will store the best so far image in ```tmp.jpg``` and currently analysed image after random change in ```tmp2.jpg```. Next we start a while loop going until the prob value will exceed 0.5. This part makes a random change to the best so far image:
 
 ```python
 x = randint(0, 31)
@@ -109,12 +109,12 @@ if (prob2 > prob):
 	plt.imsave('./static/tmp.jpg', iml)
 ```
 
-Before we run the script we must set the id to the index of the image we want to modify and the targetclass to the index of class we want our image to become (and this class number was chosen by looking at the second best class returned by the solver_getbestclass script).
+Before we run the script we must set the id variab;e to the index of the image we want to modify and the targetclass variable to the index of the class we want our image to become (and this class number was chosen by looking at the second best class returned by the solver_getbestclass script).
 
 Running the following script for each picture will result in our flag:
 
 ![server2.png](server2.png)
 
-Also there was a small technical goof related to this task - image number 2 and 3 clearly represents a cat and a bird, but the neural network recognised them as a frog and an airplane without any changes to the image :)
+Also, there was a small technical goof related to this task - images number 2 and 3 clearly represent a cat and a bird, but the neural network recognised them as a frog and an airplane without any changes to the image :)
 
 Therefore my solver script changed them in such a way that they actually become recognised correctly by the neural network (and therefore treated as an incorrect classification by the web server) xD
