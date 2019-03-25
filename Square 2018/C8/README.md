@@ -9,7 +9,7 @@ Statement
 Would love to put it there, though they are no longer available on the website :C
 The challenge goes like this:
 
-You have website that gives you long math expression to calculate. Easy, just copy, paste to calculator and done.
+You have a website that gives you long math expression to calculate. Easy, just copy, paste to calculator and done.
 
 Wrong. The font on the website is shuffled randomly, so parentheses and digits turn to some random letters (and your expression becomes something like: hhhhP z gggP r z Gzzzzwtfgggg)
 
@@ -89,7 +89,7 @@ Run once more:
 SyntaxError: invalid syntax
 ```
 
-Again? What's letter R even doing here? Kind of cool, the exclamation mark in the expression fits my mood perfectly right now. But hey! Running script several times we can notice that it's always the '7' being mistaken for '?'. Same goes with 'R' - it should be multiplication sign. Hmmmm... 'x' and 'R', quite similar, aren't they? No wonder why did the OCR recognise them incorrectly. So we can just run a couple of replaces:
+Again? What's letter R even doing here? Kind of cool, the question mark in the expression fits my mood perfectly right now. But hey! Running script several times we can notice that it's always the '7' being mistaken for '?'. Same goes with 'R' - it should be multiplication sign. Hmmmm... 'x' and 'R', quite similar, aren't they? No wonder why did the OCR recognise them incorrectly. So we can just run a couple of replaces:
 
 ```python
 string = string[8:].strip().replace('x', '*').replace('{', '(').replace('}', ')').replace('§', '5').replace('«', '*').replace('Q', '9').replace('?', '7').replace('R', '*').replace('O', '9') #By the way we also remove the captcha thingy at the beginning, don't know why I haven't done it before
@@ -105,7 +105,7 @@ Like, look at this dude:
 
 ![38.png](38.png)
 
-What the hell man. Don't know if the use of the font was intentional or not. But what the hell. How could you do this to us (well, at least to me, other people were clever enough to play with the font file instead of tryharding to make tesseract work).
+What the hell man. Don't know if the use of the font was intentional or not. But what the hell. How could you do this to us (well, at least to me, other people were clever enough to play with the font file instead of trying to make tesseract work).
 
 So what's the work around? The answer is simple: there is no workaround (inb4 train tesseract with new font - but why bother to do so?). And by the way, the 3 is not the only thing that breaks all our hopes and dreams. Tesseract still sometimes messes up the parentheses and eval will throw an exception. So here is what we will do:
 
