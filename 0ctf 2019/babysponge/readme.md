@@ -10,12 +10,12 @@ Category: Crypto
 Task
 ----
 
-We are given an implementation of a Keccak-type hashing algorithm and we asked to find two messages whose hashes are the same.
+We are given an implementation of a Keccak-type hashing algorithm and are asked to find two messages whose hashes are the same.
 
 Solution
 --------
 
-In case you never heard of the sponge construction you should read [this article](https://en.wikipedia.org/wiki/Sponge_function). I will use the following image for reference throughout this article as it will make explaining the solution much easier:
+In case you have never heard of the sponge construction you should read [this article](https://en.wikipedia.org/wiki/Sponge_function). I will use the following image for reference throughout this article as it will make explaining the solution much easier:
 
 ![sponge.png](sponge.png)
 
@@ -56,9 +56,9 @@ def Keccak(rate, capacity, inputBytes, delimitedSuffix, outputByteLen):
     return outputBytes
 ```
 
-As you can see, every block of input is processed in the while loop. First, the first r bits of state are xored with the current block of input, then the whole state (r + c bits) go through the KeccakF1600 function (labeled as f on our reference image). The way this function works is not important in case of this task so it's no use to read its source code. The only thing we should know is that it takes the entire state and outputs a new state and that it's independent of the input and round number.
+As you can see, every block of input is processed in the while loop. First, the first r bits of a state are xored with the current block of input, then the whole state (r + c bits) go through the KeccakF1600 function (labeled as f on our reference image). The way this function works is not important in case of this task so it's no use to read its source code. The only thing we should know is that it takes the entire state and outputs a new state and that it's independent of the input and round number.
 
-The source code provided also some declarations of commonly used hashing algorithms in this section:
+The source code also provides some declarations of commonly used hashing algorithms in this section:
 
 ```python
 def SHAKE128(inputBytes, outputByteLen):
@@ -86,11 +86,11 @@ The simplest way to find a hash collision is to simply generate random messages 
 
 However our hash is 32 bytes = 256 bits long, so that is certainly too long to try to find a collision this way. But we know that the capacity of our sponge construction is relatively small. Let's look at the state of our hash right before entering the squeezing phase (look at the picture for the reference). If both our messages have the same state in this point, then their final hashes will also end up the same. Now imagine that we have two messages with the length of r bits that have the exact same last c bits of the state right before the squeezing phase. If we were to extend both of them by another block of input, both of them will first be xored with the new block and then run once more throught the f function. But we know that their last c bits are the same and we can easily calculate the xor of the first r bits of their states. If we were to append block full of zeros to the first message and block equal to this xor to the second message then their state right before going through the f function will be the same and therefore their final hashes will also be the same!
 
-This means that we can now run a very simple attack: generate random 194 byte messages and calculate last c bits of their hash state right before the squeezing phase. After finding two messages with the colliding last c bits of the states calculate the xor of first r bits of their states. Append 194 null bytes to the first message and calculated xor to the second message. The resulting two messages should give the exact same hash values.
+This means that we can now run a very simple attack: generate random 194 byte messages and calculate last c bits of their hash state right before the squeezing phase. After finding two messages with the colliding last c bits of the states, calculate the xor of first the r bits of their states. Append 194 null bytes to the first message and calculated xor to the second message. The resulting two messages should give the exact same hash values.
 
 First of all we have to make some minor changes to the Keccak function in order for our attack to work properly: we must return the state right after the while loop ends and also we must return the full state array, not only first r bits as in the original implementation. The cracking script I've written in python can be found in the ```solver.py``` file, but it turned out to be extremely slow - after 3 hours of running it calculated only 5 million hashes (out of approximately 16 million required) and then it crashed with a memory error. I was therefore forced to implement my own Keccak algorithm in C++, which can be found in the ```solver.cpp``` file.
 
-The C++ program was running for around 10 minutes when he found the collision on last c bits. All I had to do then was to copy both messages and paste them into the python solver script in place of the collision searching part. The final two messages with the same hashes were:
+The C++ program was running for around 10 minutes when it found the collision on last c bits. All I had to do then was to copy both messages and paste them into the python solver script in place of the collision searching part. The final two messages with the same hashes were:
 
 ```
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c2d5850000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
