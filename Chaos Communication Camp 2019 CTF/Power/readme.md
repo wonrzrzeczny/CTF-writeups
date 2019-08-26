@@ -8,7 +8,7 @@ Statement
 
 RSA is to boring. Raise to the power of x instead.
 
-(http://static.allesctf.net/power-7919baccbb5643b6bf263d5f026709e6030980a15c3d6b49ef1eb5b52c0ee64a.py)[power.py]
+[power.py](http://static.allesctf.net/power-7919baccbb5643b6bf263d5f026709e6030980a15c3d6b49ef1eb5b52c0ee64a.py)
 
 ```nc hax.allesctf.net 1337```
 
