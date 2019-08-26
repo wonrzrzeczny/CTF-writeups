@@ -3,6 +3,10 @@ Power
 
 Category: crypto
 
+Points: 208
+
+Solves: 19
+
 Statement
 ---------
 
