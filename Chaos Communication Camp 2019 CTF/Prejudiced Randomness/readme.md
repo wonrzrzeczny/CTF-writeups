@@ -111,7 +111,7 @@ def is_prime(n, rounds):
     return not any(test(a, d, n, s) for a in R.sample(range(1,314), rounds))
 ```
 
-Basically, they perform the test only using bases less than ```314```. This is a bad idea, because although there are approximately ```n/4``` witnesses for a composite ```n```, they are not uniformly distributed amongst numbers ```[0, n)```. Moreover, there are methods allowing to craft composite numbers that fail this test for given set of bases. On of the methods is described in [https://www.sciencedirect.com/science/article/pii/S0747717185710425](this article), though it's more like a mathematical concept, rather than a step by step tutorial, so there was still a lot of work to do in order to fully understand and utilize the idea in order to capture the hard part flag.
+Basically, they perform the test only using bases less than ```314```. This is a bad idea, because although there are approximately ```n/4``` witnesses for a composite ```n```, they are not uniformly distributed amongst numbers ```[0, n)```. Moreover, there are methods allowing to craft composite numbers that fail this test for given set of bases. On of the methods is described in [this article](https://www.sciencedirect.com/science/article/pii/S0747717185710425), though it's more like a mathematical concept, rather than a step by step tutorial, so there was still a lot of work to do in order to fully understand and utilize the idea in order to capture the hard part flag.
 
 Therefore I leave the rest of the problem as an exercise to the reader :). I'm also not giving up on this problem yet, so maybe in the nearest future if I manage to crack this Miller-Rabin, you can expect a more detailed write-up for this part.
 
