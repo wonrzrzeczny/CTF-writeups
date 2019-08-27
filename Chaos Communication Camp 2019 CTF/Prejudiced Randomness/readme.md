@@ -26,7 +26,7 @@ Why does this game even works?
 
 The first step towards solving the problem is to understand how does this game even works. Why does this method allows the server to factor ```n```? And why does this method only works 50% of the time? 
 
-First of all, it is important to know, that ```s``` will have 4 square roots modulo ```n```. It can be easily shown that for a prime moduli (eg. ```p```) there are always 0 or 2 square roots. If one of the square roots modulo ```p``` is ```r```, then the other one will be ```p - r```. Therefore ```s``` have two square roots modulo ```p``` and two square roots modulo ```q``` and any pair of these residues (one modulo ```p``` and one modulo ```q```) will result in different residue modulo ```n``` being a square root of ```s``` (spoiler alert: as long as ```p != q```).
+First of all, it is important to know, that ```s``` will have 4 square roots modulo ```n```. It can be easily shown that for a prime moduli (eg. ```p```) there are always 0 or 2 square roots. If one of the square roots modulo ```p``` is ```r```, then the other one will be ```p - r```. Therefore ```s``` have two square roots modulo ```p``` and two square roots modulo ```q``` and any pair of these residues (one modulo ```p``` and one modulo ```q```) will result in a different residue modulo ```n``` being a square root of ```s``` (spoiler alert: as long as ```p != q```).
 
 Now let ```r``` be the residue found by a server and ```z``` be the residue found by us. Their squares have the same residue modulo ```n```, so ```r**2 - z**2 = 0 modulo n```, so ```(r - z)(r + z) = 0 modulo n```. So ```(r - z)(r + z)``` is a multiple of ```n = p * q```. Also it's safe to asume, that neither ```p**2``` nor ```q**2``` divides ```(r - z)(r + z)```, because the server makes sure that our given ```p``` and ```q``` are large enough for this situation to be highly improbable. Therefore we have four, equiprobable situations:
 
@@ -34,7 +34,7 @@ Now let ```r``` be the residue found by a server and ```z``` be the residue foun
 * both ```p``` and ```q``` divide ```(r + z)``` and neither divide ```(r - z)```. Then ```GCD(n, r - z) = 1``` and we win.
 * one of the ```p``` and ```q``` divides ```(r - z)``` and the other one divides ```(r + z)```. The we lose, as the server can factor ```n```.
 
-This illustrates, how this game is (seemingly) random and should result in win-lose ratio equal to 1:1.
+This illustrates, how this game is (seemingly) random and should result in a win-lose ratio equal to 1:1.
 
 Few words before the actual solution
 ------------------------------------
