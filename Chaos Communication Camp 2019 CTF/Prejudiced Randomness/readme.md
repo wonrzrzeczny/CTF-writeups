@@ -14,7 +14,7 @@ I found new uber crypto that allows us to securely generate random numbers! Lets
 
 ```nc hax.allesctf.net 7331```
 
-[https://static.allesctf.net/prejudiced-2d332bfde033d72af2c04293710c90de7da93c1240b9e821810747dc9c195667.py](challenge.py)
+[challenge.py](https://static.allesctf.net/prejudiced-2d332bfde033d72af2c04293710c90de7da93c1240b9e821810747dc9c195667.py)
 
 Solution
 --------
@@ -44,8 +44,8 @@ The title and description could make an impression that this task will require u
 The challenge also requires us to take square roots of number modulo product of two primes. As stated earlier, one can find the square roots modulo ```p``` and ```q``` first, then using chinese remainder theorem combine them into square root modulo ```n```. There are several methods to find square roots modulo prime number:
 
 * As we can chose the number ```n```, the first method is to use specially prepared primes (eg. for primes of form ```4k + 3```, the solutions are actualy equal to ```s**((p + 1) / 4)```).
-* [https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm](Tonelli-Shanks algorithm) is probably the most popular one.
-* [https://en.wikipedia.org/wiki/Cipolla%27s_algorithm](Cipolla's algorithm) on the other hand is my favourite one. It's so simple and elegant, yet so ingenious. It's also a brilliant example of how thinking outside of the box (or outside of the field in this case :) ) can sometimes solve a problem.
+* [Tonelli-Shanks algorithm](https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm) is probably the most popular one.
+* [Cipolla's algorithm](https://en.wikipedia.org/wiki/Cipolla%27s_algorithm) on the other hand is my favourite one. It's so simple and elegant, yet so ingenious. It's also a brilliant example of how thinking outside of the box (or outside of the field in this case :) ) can sometimes solve a problem.
 
 The last algorithm has also another advantage: it's extremely easy to modify it to find square roots modulo prime powers (spoiler alert: this will be useful for us).
 
@@ -99,7 +99,7 @@ The hard solution?
 
 Unfortunately, I wasn't able to crack this one entirely during the contest, but I firmly believe I know, what had to be done more or less. This time we want to lose as many games as possible. Let's think about what would happen if our given ```n``` could be a product of more than just 2 prime numbers (eg. ```k```). As every prime gives us 2 distinct square roots, this means that the overall number of square roots modulo ```n``` would be ```2**k```, but still all of them but two can aid the server in finding a factor of ```n```. Therefore chances of winning drop to ```2**-(k-1)```. Therefore as long as we could smuggle ```n``` being a product of, let's say, 7 primes, we are good.
 
-And there is a good reason to believe that it's possible. The code uses a [https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test](Miller-Rabin primality test), which is unbreakable (as long as well implemented :) ). And the last line of this primality test function looks very fishy: 
+And there is a good reason to believe that it's possible. The code uses a [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test), which is unbreakable (as long as well implemented :) ). And the last line of this primality test function looks very fishy: 
 
 ```python
 def is_prime(n, rounds):
