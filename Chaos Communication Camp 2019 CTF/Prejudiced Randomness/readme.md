@@ -41,9 +41,9 @@ Few words before the actual solution
 
 The title and description could make an impression that this task will require us to perform some rng prediction, but it turns out not to be the case here, as the rng used is python's SystemRandom, which uses system's urandom.
 
-The challenge also requires us to take square roots of number modulo product of two primes. As stated earlier, one can find the square roots modulo ```p``` and ```q``` first, then using chinese remainder theorem combine them into square root modulo ```n```. There are several methods to find square roots modulo prime number:
+The challenge also requires us to take square roots of number modulo product of two primes. As stated earlier, one can find the square roots modulo ```p``` and ```q``` first, then using chinese remainder theorem combine them into a square root modulo ```n```. There are several methods to find square roots modulo prime number:
 
-* As we can chose the number ```n```, the first method is to use specially prepared primes (eg. for primes of form ```4k + 3```, the solutions are actualy equal to ```s**((p + 1) / 4)```).
+* As we can chose the number ```n```, the first method is to use specially prepared primes, eg. for primes of form ```4k + 3```, the solutions are actualy equal to ```+- s**((p + 1) / 4)```.
 * [Tonelli-Shanks algorithm](https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm) is probably the most popular one.
 * [Cipolla's algorithm](https://en.wikipedia.org/wiki/Cipolla%27s_algorithm) on the other hand is my favourite one. It's so simple and elegant, yet so ingenious. It's also a brilliant example of how thinking outside of the box (or outside of the field in this case :) ) can sometimes solve a problem.
 
@@ -52,7 +52,7 @@ The last algorithm has also another advantage: it's extremely easy to modify it 
 The easy solution
 -----------------
 
-In the easier part of the task we want to win as many games as possible. We must therefore guarantee, that it's not possible to factor our number. The server performs various checks to see if our input was not too cheesy (ie. if our n is really a product of two primes that are at least 512 bits large). The server however doesn't check if our selected primes are different. What would happen if we were to send an ```n``` equal to ```p * p```? It means that server will be able to factor our ```n``` iff both ```(r - z)``` and ```(r + z)``` are divisible by ```p```. This on the other hand means, that both ```r``` and ```z``` must be divisible by ```p```. The ```r``` however is selected uniformly randomly by the server, which means that with ```p``` 512 bits large, it is extremely improbable to happen. This can guarantee us to win (almost) 100% of the time!
+In the easier part of the task, we want to win as many games as possible. We must therefore guarantee, that it's not possible to factor our number. The server performs various checks to see if our input was not too cheesy (ie. if our n is really a product of two primes that are at least 512 bits large). The server however doesn't check if our selected primes are different. What would happen if we were to send an ```n``` equal to ```p * p```? It means that server will be able to factor our ```n``` iff both ```(r - z)``` and ```(r + z)``` are divisible by ```p```. This on the other hand means, that both ```r``` and ```z``` must be divisible by ```p```. The ```r``` however is selected uniformly randomly by the server, which means that with ```p``` 512 bits large, it is extremely improbable to happen. This can guarantee us to win (almost) 100% of the time!
 
 The biggest problem I had to face was to actually implement the Cipolla's algorithm, which requires us to perform arithmetic operations in an extended field. The problem can be solved analogously to implementing complex numbers however. We can store each field element as pair of numbers ```(a, b)```, so that our element is equal to ```a + b * sqrt(v)``` where ```v``` is our non-residue. Now ```(a1, b1) + (a2, b2) = (a1 + a2 modulo n, b1 + b2 modulo n)``` and ```(a1, b1) * (a2, b2) = (a1 * a2 + v * b1 * b2 modulo n, a1 * b2 + b1 * a2)```.
 
