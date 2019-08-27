@@ -1,11 +1,11 @@
-Prejudiced Randomness 1
-=======================
+Prejudiced Randomness 1 (and the idea behind 2)
+===============================================
 
 Category: crypto
 
-Points: 123
+Points: 123 (easy) / 338 (hard)
 
-Solves: 39
+Solves: 39 (easy) / 8 (hard)
 
 Statement
 ---------
