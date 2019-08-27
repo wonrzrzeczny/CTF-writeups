@@ -97,9 +97,9 @@ Flag: ```ALLES{m4ster_of_r4ndomn3zz_squ4red}```
 The hard solution?
 ------------------
 
-Unfortunately, I wasn't able to crack this one entirely during the contest, but I firmly believe I know, what had to be done more or less. This time we want to lose as many games as possible. Let's think about what would happen if our given ```n``` could be a product of more than just 2 prime numbers (eg. ```k```). As every prime gives us 2 distinct square roots, this means that the overall number of square roots modulo ```n``` would be ```2**k```, but still all of them but two can aid the server in finding a factor of ```n```. Therefore chances of winning drop to ```2**-(k-1)```. Therefore as long as we could smuggle ```n``` being a product of, let's say, 7 primes, we are good.
+Unfortunately, I wasn't able to crack this one entirely during the contest, but I firmly believe I know, what had to be done more or less. This time we want to lose as many games as possible. Let's think about what would happen if our given ```n``` could be a product of more than just 2 prime numbers (eg. ```k``` of them). As every prime gives us 2 distinct square roots, this means that the overall number of square roots modulo ```n``` would be ```2**k```, but still all of them but two can aid the server in finding a factor of ```n```. Therefore chances of winning drop to ```2**-(k-1)```. Therefore, as long as we could smuggle ```n``` being a product of, let's say, 7 primes, we are good.
 
-And there is a good reason to believe that it's possible. The code uses a [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test), which is unbreakable (as long as well implemented :) ). And the last line of this primality test function looks very fishy: 
+And there is a good reason to believe that it's possible. The code uses a [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test), which is unbreakable (as long as well implemented :) ). And the last line of it's implementation looks very fishy: 
 
 ```python
 def is_prime(n, rounds):
