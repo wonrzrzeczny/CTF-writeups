@@ -118,6 +118,6 @@ Therefore I leave the rest of the problem as an exercise to the reader :). I'm a
 Conclusion
 ----------
 
-I must admit, from all the CTFs I've played so far, this must be one of my all-time favourite crypto challenge. The idea behind this random-based game is very interesting and the idea of exploiting concepts used in this task is something I haven't seen before in a CTF task. I really frankly wait for the next year's edition and hope for even more interesting to be found there :)
+I must admit, from all the CTFs I've played so far, this must be one of my all-time favourite crypto challenges. The idea behind this random-based game is very interesting and the idea of exploiting concepts used in this task is something I haven't seen before in a CTF task. I really frankly wait for the next year's edition and hope for even more interesting problems to be found there :)
 
 Cheers!
